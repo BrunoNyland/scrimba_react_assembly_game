@@ -9,5 +9,12 @@ export default function KeyboardButton(props) {
     wrong: isWrong,
   })
 
-  return <button className={classNames} onClick={() => props.onClick(props.letter)}>{props.letter.toUpperCase()}</button>
+  return <button 
+      disabled={props.isGameOver}
+      aria-disabled={props.isGameOver}
+      aria-label= {`Letter ${props.letter}`}
+      className={classNames}
+      onClick={() => props.onClick(props.letter)}>
+          {props.letter.toUpperCase()}
+    </button>
 }
