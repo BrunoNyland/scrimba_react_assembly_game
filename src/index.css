@@ -121,6 +121,16 @@ section.word > span {
   margin-bottom: 20px;
 }
 
+section.word > span.guessed {
+  border-bottom: 1px solid #10A95B;
+  color: #10A95B;
+}
+
+section.word > span.not-guessed {
+  border-bottom: 1px solid #BA2A2A;
+  color: #BA2A2A;
+}
+
 section.keyboard {
   display: flex;
   flex-wrap: wrap;

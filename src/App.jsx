@@ -5,6 +5,7 @@ import Letter from './Letter'
 import Keyboard from './Keyboard'
 import clsx from 'clsx'
 import { getFarewellText, getRandomWord } from './utils'
+import Confetti from 'react-confetti'
 
 export default function App() {
   const [currentWord, setCurrentWord] = useState(() => getRandomWord())
@@ -59,7 +60,7 @@ export default function App() {
   )
 
   const letterElements = currentWord.split("").map(
-    (letter, id) => <Letter letter={letter} guessedLetters={guessedLetters} key={id}/>
+    (letter, id) => <Letter letter={letter} guessedLetters={guessedLetters} key={id} isGameLost={isGameLost}/>
   )
 
   const gameStatusClass = clsx("game-status", {
@@ -101,6 +102,7 @@ export default function App() {
       <Keyboard onClick={addGuessedLetter} guessedLetters={guessedLetters} currentWord={currentWord} isGameOver={isGameOver}/>
 
       {isGameOver ? <button onClick={startNewGame} className="new-game">New Game</button> : null}
+      {isGameWon ? <Confetti /> : null}
     </main>
   )
 }
